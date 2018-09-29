@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import Card from './Card';
 
+//todo make offset and precision amendable by the user
+
 /**
  * This component has the responsibility of handle all the forecast data.
  * It shows a "loading" message for keep updated the user about what is
@@ -19,18 +21,22 @@ class City extends Component {
           <p>{cityName} ({countryName})</p> :
           <p>Loading</p>}
 
-        {forecastedDays.map(day => {
-          return <Card key={day.dt}
-                       date={day.dt}
-                       temp={day.main.temp}
-                       tempMin={day.main.temp_min}
-                       tempMax={day.main.temp_max}
-                       weather={day.weather[0].main}
-                       weatherDescription={day.weather[0].description}
-                       icon={day.weather[0].icon}
-                       windSpeed={day.wind.speed}
-                       windDirection={day.wind.deg}
-          />
+        {forecastedDays.map((day, index) => {
+          //Filter out the forecasts that don't respect the offset and the
+          // precision chosen
+          if((index-2) % 8 === 0) {
+            return <Card key={day.dt}
+                         date={day.dt}
+                         temp={day.main.temp}
+                         tempMin={day.main.temp_min}
+                         tempMax={day.main.temp_max}
+                         weather={day.weather[0].main}
+                         weatherDescription={day.weather[0].description}
+                         icon={day.weather[0].icon}
+                         windSpeed={day.wind.speed}
+                         windDirection={day.wind.deg}
+            />
+          }
         })}
       </div>
     )

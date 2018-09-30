@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import Card from './Card';
+import CityDialog from "./CityDialog";
 
 //todo make offset and precision amendable by the user
 
@@ -12,7 +13,7 @@ import Card from './Card';
  */
 class City extends Component {
   render() {
-    const {cityName, countryName, forecastedDays} = this.props;
+    const {cityName, countryName, forecastedDays, fetchNewCity} = this.props;
 
     return (
       <div>
@@ -21,6 +22,21 @@ class City extends Component {
           <h1>{cityName} ({countryName})</h1> :
           <p>Loading</p>}
 
+
+          {/* Displays a button that opens a dialog where the visitor can
+          change the current city */}
+        {cityName &&
+        <CityDialog
+          currentCity={cityName}
+          fetchNewCity={fetchNewCity}
+        />
+        }
+
+        {/* Displays the forecasts if available.
+        The offset indicates how far in the future the 1st forecast has to
+         be intended as "valuable" (2 means 6h in the future).
+         The precision indicates how many forecasts to consider (8 means 1 a
+          day */}
         <div className="cards--container">
           {forecastedDays.map((day, index) => {
             //Filter out the forecasts that don't respect the offset and the
@@ -37,6 +53,8 @@ class City extends Component {
                            windSpeed={day.wind.speed}
                            windDirection={day.wind.deg}
               />
+            } else {
+              return null
             }
           })}
         </div>
@@ -48,7 +66,8 @@ class City extends Component {
 City.propTypes = {
   cityName: PropTypes.string.isRequired,
   countryName: PropTypes.string.isRequired,
-  forecastedDays: PropTypes.array.isRequired
+  forecastedDays: PropTypes.array.isRequired,
+  fetchNewCity: PropTypes.func.isRequired,
 };
 
 export default City;

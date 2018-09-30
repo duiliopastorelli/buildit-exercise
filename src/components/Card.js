@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-
-//todo add the wind name
+import Paper from '@material-ui/core/Paper';
 
 /**
  * This component has the responsibility to display the weather data in form
@@ -20,6 +19,8 @@ class Card extends Component {
       windSpeed,
       windDirection
     } = this.props;
+
+    //Obtains a Date object from the date provided by the API
     const convertedDay = new Date(date * 1000);
     const currentDay = {};
     currentDay.year = convertedDay.getFullYear();
@@ -27,10 +28,11 @@ class Card extends Component {
     currentDay.day = convertedDay.getDate();
     currentDay.hours = convertedDay.getHours();
 
+    //Define the icon path
     const iconPath = `http://openweathermap.org/img/w/${icon}.png`;
 
     return (
-      <div className="card">
+      <Paper className="card">
         <span className="card--date">
           {currentDay.day}/{currentDay.month}/{currentDay.year} - {currentDay.hours}:00
         </span>
@@ -43,7 +45,7 @@ class Card extends Component {
         </div>
         <span className="card--weather-description">{weatherDescription}</span>
         <span className="card--wind">Wind {windSpeed}km/h @ {windDirection}º</span>
-      </div>
+      </Paper>
     )
   }
 }

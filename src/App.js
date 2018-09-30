@@ -90,6 +90,19 @@ class App extends Component {
           </nav>
         </header>
 
+        <p className="disclaimer">
+          Disclaimer: this project is a demo made for <a
+            href="//buildit.wiprodigital.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Buildit @ Wipro Digital</a>.
+          All trademarks displayed on this app are the trademarks of their
+          respective owners. In addition, such use of trademarks or links to
+          the web sites of third-party organizations is not intended to imply,
+          directly or indirectly, that those organizations endorse or have any
+          affiliation with this app.
+        </p>
+
         {/* City component responsible to wrap all the cards */}
         <City
           cityName={this.state.forecasts.city.name}

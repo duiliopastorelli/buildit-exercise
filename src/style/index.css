@@ -1,9 +1,67 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+h1 {
+    margin: 20px 10px;
+}
+
+ul {
+    margin: 10px;
+    padding: 0;
 }
 
 li {
-  list-style: none;
+    list-style: none;
+}
+
+.disclaimer {
+    padding: 0 10px;
+}
+
+.cards--container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    min-width: 260px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #d4d4d4;
+}
+
+.card--date {
+    padding: 5px;
+    font-size: 20px;
+}
+
+.card--main-info {
+    display: flex;
+    flex-direction: row;
+}
+
+.card--main-info img {
+    margin-right: 5px;
+}
+
+.card--temperatures {
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+}
+
+.card--weather-description:first-letter {
+    text-transform:capitalize;
+}
+
+.card--wind {
+    margin-top: 5px;
 }

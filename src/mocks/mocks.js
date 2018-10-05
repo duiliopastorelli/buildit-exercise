@@ -1,3 +1,14 @@
+export const defaultAppState = {
+  _isMounted:true,
+  forecasts:{
+    city: {
+      name: "",
+      country: "",
+    },
+    list: []
+  }
+};
+
 export const fullWeatherAPIResponse =
   {
     "cod": "200",

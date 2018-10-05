@@ -5,6 +5,7 @@ import secrets from "./secrets";
 class App extends Component {
 
   state = {
+    _isMounted: false,
     forecasts: {
       city: {
         name: "",
@@ -39,6 +40,7 @@ class App extends Component {
    * and needs to be added separately.
    * @param cityId
    */
+
   fetchForecasts = cityId => {
     const url = 'https://api.openweathermap.org/data/2.5/forecast?';
     fetch(`${url}id=${cityId}&units=metric&APPID=${secrets.apiKey}`)
@@ -60,9 +62,13 @@ class App extends Component {
         localStorage.forecasts = JSON.stringify(res);
 
         //Update the state and force a reload of the UI
-        this.setState(() => ({
-          forecasts: res
-        }))
+        //Only if the Component is still mounted after the promise is resolved
+        //This address leaks in memory issues
+        if(this.state._isMounted) {
+          this.setState(() => ({
+            forecasts: res
+          }))
+        }
       })
       .catch(error => console.error(error));
   };
@@ -105,6 +111,18 @@ class App extends Component {
     //todo allows for a city different to Warsaw to be used as a default
     let cityId = 6695624;
     this.checkForecast(cityId);
+
+    //Set the mounted state of the component to true
+    this.setState({
+      _isMounted: true,
+    })
+  }
+
+  componentWillUnmount() {
+    //Set the mounted state after the Component lifecycle end
+    this.setState({
+      _isMounted: false,
+    })
   }
 
   render() {

@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`City Component renders correctly 1`] = `
+<div>
+  <h1>
+    Warsawa
+     (
+    Poland
+    )
+  </h1>
+  <div>
+    <button
+      className="MuiButtonBase-root-27 MuiButton-root-1 MuiButton-text-3 MuiButton-flat-6"
+      disabled={false}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      tabIndex="0"
+      type="button"
+    >
+      <span
+        className="MuiButton-label-2"
+      >
+        Change city
+      </span>
+      <span
+        className="MuiTouchRipple-root-30"
+      />
+    </button>
+  </div>
+  <div
+    className="cards--container"
+  >
+    <div
+      className="MuiPaper-root-52 MuiPaper-elevation2-56 MuiPaper-rounded-53 card"
+    >
+      <span
+        className="card--date"
+      >
+        5
+        /
+        10
+        /
+        2018
+         - 
+        14
+        :00
+      </span>
+      <div
+        className="card--main-info"
+      >
+        <img
+          alt="clear sky"
+          src="http://openweathermap.org/img/w/01d.png"
+        />
+        <div
+          className="card--temperatures"
+        >
+          <span>
+            14.23
+            ºC - 
+            Clear
+          </span>
+          <span>
+            14.23
+            ºC ~ 
+            17.3
+            ºC
+          </span>
+        </div>
+      </div>
+      <span
+        className="card--weather-description"
+      >
+        clear sky
+      </span>
+      <span
+        className="card--wind"
+      >
+        Wind 
+        5.02
+        km/h @ 
+        232.501
+        º
+      </span>
+    </div>
+  </div>
+</div>
+`;

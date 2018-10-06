@@ -78,7 +78,7 @@ class App extends Component {
    * todo add a catch block in case an invalid city is passed
    * todo externalise this list in a specific module using a json file
    */
-  identifyCity = cityName => {
+  identifyCity = (cityName='') => {
     let cityId = null;
     switch (cityName.toLowerCase()) {
       case 'london':

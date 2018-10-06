@@ -3,7 +3,11 @@ import App from './App';
 import {configure, shallow, mount} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import {expect} from 'chai';
-import {fullWeatherAPIResponse, defaultAppState} from './mocks/mocks'
+import {
+  fullWeatherAPIResponse,
+  fullWeatherAPIResponseLondon,
+  defaultAppState
+} from './mocks/mocks'
 
 configure({adapter: new Adapter()});
 
@@ -105,6 +109,28 @@ describe('<App />', () => {
       expect(localStorage.__STORE__.date).to.deep.equal(newerDate);
       done();
     })
+  });
+
+  it('fetches a new city forecast', done => {
+
+    //Provides a mock for the fetchForecasts API call
+    fetch.mockResponse(JSON.stringify(fullWeatherAPIResponse));
+
+    //Shallow render the component
+    const component = shallow(<App/>);
+
+    fetch.mockResponse(JSON.stringify(fullWeatherAPIResponseLondon));
+    component.instance().fetchNewCity('london');
+
+    setTimeout(() => {
+      expect(localStorage.__STORE__.forecasts).to.be.deep.equal(
+        JSON.stringify(fullWeatherAPIResponseLondon)
+      );
+      done();
+    })
+
+
   })
+
 });
 

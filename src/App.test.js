@@ -1,8 +1,11 @@
 import React from 'react';
 import App from './App';
-import {configure, shallow, mount} from 'enzyme';
+import {configure, shallow} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+
+//This suite uses Chai as assertion and the 'jest-fetch-mock' libraries
 import {expect} from 'chai';
+
 import {
   fullWeatherAPIResponse,
   fullWeatherAPIResponseLondon,
@@ -11,7 +14,7 @@ import {
 
 configure({adapter: new Adapter()});
 
-describe('<App />', () => {
+describe('App Component', () => {
 
   beforeEach(() => {
     fetch.resetMocks();
@@ -128,9 +131,6 @@ describe('<App />', () => {
       );
       done();
     })
-
-
   })
 
 });
-

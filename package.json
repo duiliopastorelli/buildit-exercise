@@ -16,6 +16,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "testCoverage": "react-scripts test --env=jsdom --coverage",
     "eject": "react-scripts eject"
   },
   "devDependencies": {
@@ -24,5 +25,15 @@
     "enzyme-adapter-react-16": "^1.6.0",
     "jest-fetch-mock": "^1.6.6",
     "jest-localstorage-mock": "^2.2.0"
+  },
+  "jest":{
+    "coverageThreshold": {
+      "global": {
+        "branches": 70,
+        "functions": 70,
+        "lines": 70,
+        "statements": 70
+      }
+    }
   }
 }

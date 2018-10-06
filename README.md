@@ -27,3 +27,8 @@ Build the App for production
 
 Test the App
 ```npm test```
+
+Verify the test coverage
+```npm run testCoverage```
+
+Note: test coverage is set at 70% globally.

@@ -62,8 +62,13 @@ Build the App for production
 Test the App
 ```npm test```
 
-Please note that the App has an internal "caching system", once the forecasts
- for the current city have been retrieved, they get saved in the localStorage
- . No further requests are sent to the API unless the selected city changes 
- or the forecasts goes "out of date". To force a new fetch, please clear the 
- localStorage.
+Verify the test coverage
+```npm run testCoverage```
+
+Note: test coverage is set at 70% globally.
+
+Please also note that the App has an internal "caching system", once the 
+forecasts for the current city have been retrieved, they get saved in the 
+localStorage. No further requests are sent to the API unless the selected 
+city changes or the forecasts goes "out of date". To force a new fetch, 
+please clear the localStorage.
